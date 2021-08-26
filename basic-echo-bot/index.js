@@ -11,7 +11,7 @@ const TOKEN = 'YOUR_TOKEN';
 const TITLE = 'BOT_NAME';
 const MY_DOMAIN = 'YOUR_SERVER_DOMAIN';
 const MY_ENDPOINT = `${MY_DOMAIN}/messages/${TOKEN}`;
-const API_URL = 'https://unissist.ue.r.appspot.com';
+const API_URL = 'https://uniget-back.oa.r.appspot.com';
 
 app.get(`/init`, async (req, res) => {
     let response = await setup();
