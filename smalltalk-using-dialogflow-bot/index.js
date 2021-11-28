@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const IMAGE = 'https://firebasestorage.googleapis.com/v0/b/ultimate-2c4e3.appspot.com/o/download.png?alt=media&token=5ec7f168-d413-4267-94d0-426535c885b0';
 const TOKEN = 'YOUR_TOKEN';
 const DIALOGFLOW_PROJECT_ID = 'YOUR_DIALOGFLOW_PROJECT_ID';
 const TITLE = 'BOT_NAME';
@@ -28,8 +29,9 @@ app.post(`/messages/${TOKEN}`, async (req, res) => {
 
 const setup = async () => {
   try {        
-      const res = await axios.get(`${API_URL}/messages/init?token=${TOKEN}&title=${TITLE}&endpoint=${MY_ENDPOINT}`);
-      return res;
+    let url = `${API_URL}/messages/init?token=${TOKEN}&title=${TITLE}&endpoint=${encodeURIComponent(MY_ENDPOINT)}&image=${encodeURIComponent(IMAGE)}`
+    const res = await axios.get(url)
+    return res;
   } catch (err) {
       console.log(err);
   }
